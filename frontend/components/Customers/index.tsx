@@ -38,7 +38,7 @@ export function Customers({ customersProps }: { customersProps: Customers[] }) {
                 <article className="w-full bg-white rounded p-2 relative hover:scale-105 duration-200">
                     <p><span className="font-medium">Nome:</span> {item.name}</p>
                     <p><span className="font-medium">Email:</span> {item.email}</p>
-                    <p><span className="font-medium">Status:</span> {item.status}</p>
+                    <p><span className="font-medium">Status:</span> {item.status === true ? <span>Ativo</span> : <span>Não ativo</span>}</p>
 
                     <button className="bg-red-600 w-7 h-7 flex items-center justify-center rounded-lg absolute right-0 -top-2"><FiTrash size={18} color="#FFF" onClick={() => {setModal(true); setId(item.id)}}/></button>
                 </article>
@@ -47,7 +47,7 @@ export function Customers({ customersProps }: { customersProps: Customers[] }) {
                 modal && (
                     <><div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center" onClick={() => setModal(false)} />
                         <div className='fixed inset-0 flex items-center justify-center'>
-                            <div className="bg-white p-8 rounded-lg shadow-lg w-1/3 max-w-md">
+                            <div className="bg-white p-8 rounded-lg shadow-lg w-1/2 lg:w-1/3 max-w-md">
                                 <h2 className="text-2xl font-bold mb-4 text-center">Deseja mesmo deletar esse cliente?</h2>
 
                                 <div className='flex justify-center items-center gap-4'>
